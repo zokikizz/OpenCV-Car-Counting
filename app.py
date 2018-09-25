@@ -39,7 +39,7 @@ def draw_prediction(img, class_id, confidence, x, y, x_plus_w, y_plus_h):
         cv2.putText(img, label, (x - 10, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
 
 
-if __name__=='__main__':
+if __name__ == '__main__':
 
     camera = cv2.VideoCapture('./video.mp4')
 
@@ -95,6 +95,9 @@ if __name__=='__main__':
 
         indices = cv2.dnn.NMSBoxes(boxes, confidences, conf_threshold, nms_threshold)
 
+        message = 'Number of detected cars: {}'.format(len(indices))
+        cv2.putText(image, message, (40, 40), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+
         for i in indices:
             i = i[0]
             box = boxes[i]
@@ -106,7 +109,7 @@ if __name__=='__main__':
 
         cv2.imshow("object detection", image)
         key = cv2.waitKey(1)
-        if key%256 == 27:
+        if key % 256 == 27:
             break
 
         # cv2.imwrite("object-detection.jpg", image)
