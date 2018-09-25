@@ -1,7 +1,11 @@
 # OpenCV-Car-Counting
 
 
-Download weights for cv2.dnn with command (237MB): wget https://pjreddie.com/media/files/yolov3.weights
+Download weights for cv2.dnn with command (237MB): 
+```commandline
+   wget https://pjreddie.com/media/files/yolov3.weights
+
+```
 
 Read about it more: https://pjreddie.com/darknet/yolo/
 
